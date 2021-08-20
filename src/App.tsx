@@ -4,10 +4,12 @@ import Home from './pages/home/Home';
 import './styles.scss';
 
 const App = () => (
-    <Switch>
-        <Route path="/country" component={Country} />
-        <Route path="/" component={Home} />
-    </Switch>
+    <main>
+        <Switch>
+            <Route path="/country" component={Country} />
+            <Route path="/" component={Home} />
+        </Switch>
+    </main>
 );
 
 export default App;
