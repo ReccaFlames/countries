@@ -1,14 +1,8 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Home = () => (
     <div>
-        <h1>
-            <span>
-                <FontAwesomeIcon icon={faCoffee} />
-                Home page
-            </span>
-        </h1>
+        <Link to="/country">Go to Country</Link>
     </div>
 );
 

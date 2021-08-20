@@ -1,0 +1,27 @@
+@import './../../sassStyles/variables';
+
+.header__nav {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 2rem 1rem;
+    background-color: $lightElementColor;
+}
+
+.header__nav_shadow {
+    -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+}
+
+.header__logo {
+    font-size: 1.333rem;
+    text-decoration: none;
+    color: $lightTextColor;
+    font-weight: $strongFontWeight;
+    &:hover {
+        color: $primaryColor;
+    }
+}
