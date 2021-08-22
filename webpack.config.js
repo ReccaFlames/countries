@@ -32,6 +32,11 @@ module.exports = {
                 test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
                 type: 'asset/inline',
             },
+            {
+                test: /\.js$/,
+                enforce: 'pre',
+                use: ['source-map-loader'],
+            },
         ],
     },
     resolve: {
