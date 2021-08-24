@@ -1,0 +1,61 @@
+@import '../../sassStyles/variables';
+
+.card:hover {
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08), 0 5px 8px 1.2px rgba(0, 0, 0, 0.2);
+}
+
+.card a {
+    text-decoration: none;
+    color: $lightTextColor;
+}
+
+.card {
+    border-radius: 1rem;
+    box-shadow: 0px 2px 12px 0px #d1d1d1;
+}
+
+.card,
+.card .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card .content {
+    flex-grow: 1;
+    padding: 0 2rem 2rem 2rem;
+}
+
+.card .content > * + * {
+    margin-top: 0.75rem;
+}
+
+.card .img {
+    height: 50%;
+}
+
+.card .content {
+    max-width: 60ch;
+}
+
+.card + .card {
+    margin-top: 1.5rem;
+}
+
+@supports (display: grid) {
+    .cards > ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+        grid-gap: 1.5rem;
+    }
+
+    .card + .card {
+        margin-top: 0;
+    }
+}
+
+.card .img img {
+    object-fit: cover;
+    border-radius: 1rem 1rem 0 0;
+    height: 100%;
+    width: 100%;
+}

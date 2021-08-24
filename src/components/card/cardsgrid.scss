@@ -1,0 +1,19 @@
+@import '../../sassStyles/mixins';
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-gap: 2.5rem;
+
+    padding: 1rem 2rem 3rem 4rem;
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: inherit;
+
+    @include smMinBreakPoint {
+        grid-column-gap: 1.5rem;
+        grid-row-gap: 1.5rem;
+    }
+}
