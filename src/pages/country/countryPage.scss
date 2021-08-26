@@ -1,0 +1,51 @@
+@import '../../sassStyles/variables';
+
+.country-details {
+    padding: 2rem;
+}
+
+.link-button {
+    box-shadow: 0px 2px 12px 0px #d1d1d1;
+    border-radius: 5px;
+    padding: 0.5em 2em;
+    text-decoration: none;
+    color: $lightTextColor;
+    background-color: $lightElementColor;
+    cursor: pointer;
+}
+
+.link-button:active {
+    box-shadow: inset 0px 0px 4px 0px #d1d1d1;
+    background-color: rgb(119, 119, 119);
+    color: #f1f1f1;
+}
+
+.link-button > svg {
+    padding-right: 0.5em;
+}
+
+.country-flag {
+    width: 100%;
+    height: auto;
+    margin-top: 5rem;
+}
+
+.border-countries {
+    list-style-type: none;
+    padding: 0;
+    line-height: 3.2rem;
+
+    li {
+        display: inline-block;
+    }
+
+    li:not(:last-child) {
+        margin-right: 1rem;
+    }
+}
+
+.property-row {
+    span {
+        font-weight: 700;
+    }
+}
