@@ -1,19 +1,18 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Country from '../../models/country';
 import { AppState } from '../../utils/redux/rootReducer';
 
-interface CountriesState {
-    countries: Array<Country>;
+interface InitState {
     status: 'idle' | 'pending' | 'succeeded' | 'failed';
     error?: string;
 }
 
-const initialState = {
-    countries: [],
-    status: 'idle',
-    error: undefined,
-} as CountriesState;
+const countriesAdapter = createEntityAdapter({
+    selectId: (country: Country) => country.alpha3Code,
+});
+
+const initialState = countriesAdapter.getInitialState({ status: 'idle', error: undefined } as InitState);
 
 export const fetchCountries = createAsyncThunk('countries/fetchCountries', async () => {
     const response = await axios.get('https://restcountries.eu/rest/v2/all');
@@ -31,7 +30,7 @@ const countriesSlice = createSlice({
 
         builder.addCase(fetchCountries.fulfilled, (state, action) => {
             state.status = 'succeeded';
-            state.countries = state.countries.concat(action.payload);
+            countriesAdapter.setAll(state, action.payload);
         });
 
         builder.addCase(fetchCountries.rejected, (state, action) => {
@@ -43,7 +42,6 @@ const countriesSlice = createSlice({
 
 export default countriesSlice.reducer;
 
-export const selectAllCountries = (state: AppState) => state.countries.countries;
-
-export const selectCountryByAlpha3Code = (state: AppState, countryAlpha3Code: string) =>
-    state.countries.countries.find((country: Country) => country.alpha3Code === countryAlpha3Code);
+export const { selectAll: selectAllCountries, selectById: selectCountryByAlpha3Code } = countriesAdapter.getSelectors(
+    (state: AppState) => state.countries
+);

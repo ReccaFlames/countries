@@ -15,7 +15,7 @@ const CountryPage = () => {
 
     return (
         <section>
-            <h1>{country.name}</h1>
+            <h1>{country?.name}</h1>
             <Link to="/">
                 <FontAwesomeIcon icon={faLongArrowAltLeft} /> Go Back
             </Link>
