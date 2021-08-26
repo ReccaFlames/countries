@@ -1,8 +1,8 @@
 import Card from '../../../components/card/Card';
 import Country from '../../../models/country';
 
-const CountryCard = ({ country }: { country: Country }) => (
-    <Card title={country.name} image={country.flag}>
+const CountryCard = ({ country, link }: { country: Country; link: string }) => (
+    <Card title={country.name} image={country.flag} link={link}>
         <ul style={{ listStyleType: 'none', paddingLeft: 0, margin: 0 }}>
             <li style={{ paddingBottom: '0.5rem' }}>
                 <b>Population:</b> {country.population}

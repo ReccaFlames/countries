@@ -5,29 +5,35 @@ interface CardProps {
     title: string;
     children?: JSX.Element | string;
     image: string;
+    link?: string;
 }
 
 const Card: React.FC<CardProps> = (props) => {
-    const { title, children, image } = props;
+    const { title, children, image, link } = props;
 
     return (
         <li className="card">
-            {/* <div className="img">
-                <img src={image} alt="" />
-            </div>
-            <div className="content">
-                <h2>{title}</h2>
-                {children}
-            </div> */}
-            <Link to="/country">
-                <div className="img">
-                    <img src={image} alt="" />
-                </div>
-                <div className="content">
-                    <h2>{title}</h2>
-                    {children}
-                </div>
-            </Link>
+            {link ? (
+                <Link to={link}>
+                    <div className="img">
+                        <img src={image} alt="" />
+                    </div>
+                    <div className="content">
+                        <h2>{title}</h2>
+                        {children}
+                    </div>
+                </Link>
+            ) : (
+                <>
+                    <div className="img">
+                        <img src={image} alt="" />
+                    </div>
+                    <div className="content">
+                        <h2>{title}</h2>
+                        {children}
+                    </div>
+                </>
+            )}
         </li>
     );
 };
