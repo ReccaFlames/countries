@@ -50,7 +50,17 @@ export const filteredCountries = createSelector(
     selectAllCountries,
     (state: AppState) => state.filters,
     (countries, filters) => {
-        const { searchPhrase } = filters;
-        return countries.filter((country: Country) => country.name.toLowerCase().includes(searchPhrase.toLowerCase()));
+        const { searchPhrase, region } = filters;
+
+        let filteredByRegion = countries;
+        if (region !== 'all') {
+            filteredByRegion = countries.filter((country: Country) => country.region.toLowerCase() === region);
+        }
+
+        const filteredByName = filteredByRegion.filter((country: Country) =>
+            country.name.toLowerCase().includes(searchPhrase.toLowerCase())
+        );
+
+        return filteredByName;
     }
 );
