@@ -1,4 +1,4 @@
-import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createEntityAdapter, createSelector, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Country from '../../models/country';
 import { AppState } from '../../utils/redux/rootReducer';
@@ -44,4 +44,13 @@ export default countriesSlice.reducer;
 
 export const { selectAll: selectAllCountries, selectById: selectCountryByAlpha3Code } = countriesAdapter.getSelectors(
     (state: AppState) => state.countries
+);
+
+export const filteredCountries = createSelector(
+    selectAllCountries,
+    (state: AppState) => state.filters,
+    (countries, filters) => {
+        const { searchPhrase } = filters;
+        return countries.filter((country: Country) => country.name.toLowerCase().includes(searchPhrase.toLowerCase()));
+    }
 );
