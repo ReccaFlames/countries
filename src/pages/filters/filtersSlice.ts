@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const RegionFilters = {
     All: 'all',
     Africa: 'africa',
-    America: 'america',
+    Americas: 'americas',
     Asia: 'asia',
     Europe: 'europe',
     Oceania: 'oceania',

@@ -7,19 +7,28 @@
     align-items: center;
     position: relative;
     padding: 2rem 1rem;
-    background-color: $lightElementColor;
+    background-color: var(--element-color);
+    color: var(--color-text);
+}
+
+.header__nav > .btn {
+    color: var(--color-text);
+
+    svg {
+        color: var(--theme-switcher-icon);
+    }
 }
 
 .header__nav_shadow {
-    -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
-    -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
-    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    -webkit-box-shadow: 0 3px 5px var(--shadow-color);
+    -moz-box-shadow: 0 3px 5px var(--shadow-color);
+    box-shadow: 0 3px 5px var(--shadow-color);
 }
 
 .header__logo {
     font-size: 1.333rem;
     text-decoration: none;
-    color: $lightTextColor;
+    color: var(--color-text);
     font-weight: $strongFontWeight;
     &:hover {
         color: $primaryColor;

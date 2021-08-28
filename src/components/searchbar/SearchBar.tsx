@@ -18,7 +18,7 @@ const SearchBar = () => {
                 type="text"
                 id="myInput"
                 role="searchbox"
-                placeholder="Search for country.."
+                placeholder="Search for a country.."
                 onChange={(e) => onSearchPhraseChange(e.target.value)}
                 value={searchPhrase}
             />

@@ -7,8 +7,9 @@
     max-width: 15ch;
     cursor: pointer;
     line-height: 1.1;
-    background-color: #fff;
-    box-shadow: 0px 2px 12px 0px #d1d1d1;
+    color: var(--color-text);
+    background-color: var(--element-color);
+    box-shadow: 0px 2px 12px 0px var(--shadow-color);
     font-size: 1.2rem;
     border-radius: 0.5rem;
     padding: 0.7rem 1.5rem;
@@ -22,8 +23,9 @@
     padding: 0;
     margin: 0;
     padding-left: 1em;
-    background-color: #fff;
-    box-shadow: 0px 2px 12px 0px #d1d1d1;
+    color: var(--color-text);
+    background-color: var(--element-color);
+    box-shadow: 0px 2px 12px 0px var(--shadow-color);
     box-sizing: border-box;
     font-size: 1.2rem;
     line-height: 1.1;
@@ -43,6 +45,8 @@
     cursor: pointer;
     padding-left: 1.5rem;
     text-transform: capitalize;
+    color: var(--color-text);
+    background-color: var(--element-color);
 
     &:first-child {
         padding-top: 0.8em;
